@@ -42,11 +42,18 @@ export const RadioGroup = styled.div`
   }
 `;
 
-export const Button = styled.button`
+export const Button= styled.button`
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   color: white;
   background-color: DarkSlateBlue;
+
+  :hover {
+    background-color: #3B1A60;
+    box-shadow: 0 0 1em #3C3C3C;
+    transform: scale(1.1);
+    transition: all 0.5s;
+  }
 `;
