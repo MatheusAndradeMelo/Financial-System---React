@@ -9,7 +9,7 @@ export const Container = styled.div`
 export const Header = styled.h1`
     height: 150px;
     text-align: center;
-    background: teal;
+    background: DarkSlateBlue;
 `;
 
 export const Title = styled.div`
