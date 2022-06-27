@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Grid from "../Grid";
 import * as C from "./styles";
+import swel from 'sweetalert2'
 
 const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
   const [desc, setDesc] = useState("");
@@ -11,10 +12,20 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
 
   const handleSave = () => {
     if (!desc || !amount) {
-      alert("Informe a descrição e o valor!");
+      swel.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Prencha os campos de descrição e valor!',
+      })
       return;
+      
+      ;
     } else if (amount < 1) {
-      alert("O valor tem que ser positivo!");
+      swel.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'O valor tem que ser positivo!',
+      })
       return;
     }
 
@@ -26,6 +37,13 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
     };
 
     handleAdd(transaction);
+    swel.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Adicionado com sucesso!',
+      showConfirmButton: false,
+      timer: 1700
+    })
 
     setDesc("");
     setAmount("");
@@ -36,13 +54,14 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
       <C.Container>
         <C.InputContent>
           <C.Label>Descrição</C.Label>
-          <C.Input value={desc} onChange={(e) => setDesc(e.target.value)} />
+          <C.Input placeholder="Escreva aqui..." value={desc} onChange={(e) => setDesc(e.target.value)} />
         </C.InputContent>
         <C.InputContent>
           <C.Label>Valor</C.Label>
           <C.Input
             value={amount}
             type="number"
+            placeholder="R$ 00,00"
             onChange={(e) => setAmount(e.target.value)}
           />
         </C.InputContent>
