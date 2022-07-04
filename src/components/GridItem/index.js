@@ -1,5 +1,6 @@
 import React from "react";
 import * as C from "./styles";
+import swel from "sweetalert2";
 
 import {
   FaRegArrowAltCircleUp,
@@ -8,6 +9,16 @@ import {
 } from "react-icons/fa";
 
 const GridItem = ({ item, onDelete, showModal }) => {
+  const handleDelete = () => {
+    onDelete(item.id);
+    swel.fire({
+      icon: "success",
+      title: "Excluído com sucesso!",
+      showConfirmButton: false,
+      timer: 1700,
+    });
+    return;
+  };
 
   return (
     <C.Tr>
@@ -21,7 +32,7 @@ const GridItem = ({ item, onDelete, showModal }) => {
         )}
       </C.Td>
       <C.Td alignCenter>
-        <FaTrash onClick={() => onDelete(item.id)} />
+        <FaTrash onClick={handleDelete} />
       </C.Td>
     </C.Tr>
   );

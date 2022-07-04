@@ -29,6 +29,7 @@ export const Input = styled.input`
   padding: 5px 10px;
   font-size: 15px;
   border: 1px solid #ccc;
+  
 `;
 
 export const RadioGroup = styled.div`
@@ -48,10 +49,10 @@ export const Button= styled.button`
   border-radius: 5px;
   cursor: pointer;
   color: white;
-  background-color: DarkSlateBlue;
+  background-color:  rgba(152,68,183,1);
 
   :hover {
-    background-color: #3B1A60;
+    background-color: #9370db;
     box-shadow: 0 0 1em #3C3C3C;
     transform: scale(1.1);
     transition: all 0.5s;

@@ -9,7 +9,21 @@ export const Container = styled.div`
 export const Header = styled.h1`
   height: 150px;
   text-align: center;
-  background: DarkSlateBlue;
+  background: linear-gradient(
+    -45deg, 
+        rgba(59,173,227,1) 0%, 
+        rgba(87,111,230,1) 25%, 
+        rgba(152,68,183,1) 51%, 
+        rgba(255,53,127,1) 100%
+  );
+  background-size: 300% 300%;
+  animation: AnimateBG 20s ease infinite;
+
+  @keyframes AnimateBG { 
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
 `;
 
 export const Title = styled.div`
@@ -24,5 +38,6 @@ export const Title = styled.div`
     to {
         transform: rotateX(0deg)
     }
-}
+  }
+  
 `;

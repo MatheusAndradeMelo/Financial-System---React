@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Grid from "../Grid";
 import * as C from "./styles";
-import swel from 'sweetalert2'
+import swel from "sweetalert2";
 
 const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
   const [desc, setDesc] = useState("");
@@ -13,19 +13,17 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
   const handleSave = () => {
     if (!desc || !amount) {
       swel.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Prencha os campos de descrição e valor!',
-      })
+        icon: "error",
+        title: "Oops...",
+        text: "Prencha os campos de descrição e valor!",
+      });
       return;
-      
-      ;
     } else if (amount < 1) {
       swel.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'O valor tem que ser positivo!',
-      })
+        icon: "error",
+        title: "Oops...",
+        text: "O valor tem que ser positivo!",
+      });
       return;
     }
 
@@ -38,12 +36,12 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
 
     handleAdd(transaction);
     swel.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'Adicionado com sucesso!',
+      position: "center",
+      icon: "success",
+      title: "Adicionado com sucesso!",
       showConfirmButton: false,
-      timer: 1700
-    })
+      timer: 1700,
+    });
 
     setDesc("");
     setAmount("");
@@ -54,7 +52,12 @@ const Form = ({ handleAdd, transactionsList, setTransactionsList }) => {
       <C.Container>
         <C.InputContent>
           <C.Label>Descrição</C.Label>
-          <C.Input placeholder="Escreva aqui..." value={desc} onChange={(e) => setDesc(e.target.value)} />
+          <C.Input
+            type="text"
+            placeholder="Escreva aqui..."
+            value={desc}
+            onChange={(e) => setDesc(e.target.value)}
+          />
         </C.InputContent>
         <C.InputContent>
           <C.Label>Valor</C.Label>
