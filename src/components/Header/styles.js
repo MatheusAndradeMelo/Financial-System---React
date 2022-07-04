@@ -39,4 +39,5 @@ export const Title = styled.div`
         transform: rotateX(0deg)
     }
   }
+  
 `;
