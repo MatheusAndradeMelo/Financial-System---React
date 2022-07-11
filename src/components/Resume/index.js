@@ -1,5 +1,5 @@
 import React from "react";
-import ResumeItem from "../../ResumeItem";
+import ResumeItem from "../ResumeItem";
 import * as C from "./styles";
 import {
   FaRegArrowAltCircleUp,
